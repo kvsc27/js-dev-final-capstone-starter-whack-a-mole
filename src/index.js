@@ -2,8 +2,8 @@ const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('#start');
 // TODO: Add the missing query selectors:
-const score; // Use querySelector() to get the score element
-const timerDisplay; // use querySelector() to get the timer element.
+const score = document.querySelector(".score"); // Use querySelector() to get the score element
+const timerDisplay = document.querySelector(".timerDisplay"); // use querySelector() to get the timer element.
 
 let time = 0;
 let timer;
@@ -58,9 +58,20 @@ function setDelay(difficulty) {
  * const holes = document.querySelectorAll('.hole');
  * chooseHole(holes) //> returns one of the 9 holes that you defined
  */
+let lastHole;
+
 function chooseHole(holes) {
   // TODO: Write your code here.
+const index = Math.floor(Math.random() * holes.length);
 
+const hole = holes[index];
+
+if (hole === lastHole) {
+  return chooseHole(holes);
+}
+
+lastHole = hole;
+  return hole;
 }
 
 /**
@@ -242,10 +253,11 @@ function stopGame(){
 * is clicked.
 *
 */
-function startGame(){
-  //setDuration(10);
-  //showUp();
-  return "game started";
+
+function startGame() {
+  setDuration(10);  // Set the game duration to 10 (units depend on implementation)
+  showUp();         // Show or initialize game elements
+  return "Let's get WHACKIN'";  // Returns a confirmation message
 }
 
 startButton.addEventListener("click", startGame);
