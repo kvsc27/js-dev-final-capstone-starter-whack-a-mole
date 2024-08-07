@@ -102,7 +102,36 @@ lastHole = hole;
 */
 function gameOver() {
   // TODO: Write your code here
-  
+let gameTimeout;  // Variable to store the timeout ID
+let remainingTime = 10;  // Example of remaining game time, set as needed
+
+// Define the showUp function (for example purposes)
+function showUp() {
+  console.log("Showing up at a new hole.");
+  // Implement the logic to display or initialize the next game element
+}
+
+// Define the stopGame function
+function stopGame() {
+  console.log("Game stopped");
+  return "game stopped";
+}
+
+// Function to check the game status
+function checkGameStatus(time) {
+  if (time > 0) {
+    // Continue the game and call showUp
+    showUp();
+
+    // Set a new timeout to call checkGameStatus again
+    const delay = getTimeDelay('normal');  // Replace 'normal' with the desired difficulty
+    gameTimeout = setTimeout(() => checkGameStatus(time - 1), delay);
+    
+    return gameTimeout;
+  } else {
+    // Stop the game
+    return stopGame();
+  }  
 }
 
 /**
