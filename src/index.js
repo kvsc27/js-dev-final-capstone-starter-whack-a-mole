@@ -1,8 +1,8 @@
 const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('#start');
-const score = document.querySelector("#score"); // Uses querySelector() to get the score element
-const timerDisplay = document.querySelector("#timer"); // uses querySelector() to get the timer element.
+const score = document.querySelector("#score");
+const timerDisplay = document.querySelector("#timer");
 
 let time = 15;
 let timer;
@@ -44,61 +44,36 @@ function gameOver() {
   }
 }  
 
-
-// Define the showUp function (for example purposes)
 function showUp() {
   let delay = setDelay(difficulty);
   const hole = chooseHole(holes);
   return showAndHide(hole, delay);
 }
 
-// Define the stopGame function
 function stopGame() {
   clearInterval(timer);
   time = 15;
   return "game over";
 }
 
-// Function to check the game status
 function checkGameStatus(time) {
   if (time > 0) {
-    // Continue the game and call showUp
     const timeoutID = showUp();
-
-    // Set a new timeout to call checkGameStatus again
-    const delay = getTimeDelay('normal');  // Replace 'normal' with the desired difficulty
+    const delay = getTimeDelay('normal');
     gameTimeout = setTimeout(() => checkGameStatus(time - 1), delay);
     
     return gameTimeout;
   } else {
-    // Stop the game
     return stopGame();
   }  
 }
 
-/**
-*
-* Calls the showAndHide() function with a specific delay and a hole.
-*
-* This function simply calls the `showAndHide` function with a specific
-* delay and hole. The function needs to call `setDelay()` and `chooseHole()`
-* to call `showAndHide(hole, delay)`.
-*
-*/
 function showUp() {
-  let delay = 0; // TODO: Update so that it uses setDelay()
-  const hole = 0;  // TODO: Update so that it use chooseHole()
+  let delay = setDelay(difficulty);
+  const hole = chooseHole(holes);
   return showAndHide(hole, delay);
 }
 
-/**
-*
-* The purpose of this function is to show and hide the mole given
-* a delay time and the hole where the mole is hidden. The function calls
-* `toggleVisibility` to show or hide the mole. The function should return
-* the timeoutID
-*
-*/
 function showAndHide(hole, delay){
   toggleVisibility(hole);
   
@@ -151,12 +126,7 @@ function whack(event) {
   return points;
 }
 
-/**
-*
-* Adds the 'click' event listeners to the moles. See the instructions
-* for an example on how to set event listeners using a for loop.
-*/
-function setEventListeners(){
+function setEventListeners() {
   moles.forEach(moles) => moles.addEventListeners("click", whack));
   return moles;
 }
@@ -167,10 +137,10 @@ function setDuration(duration) {
 }
 
 function stopGame(){
-  // stopAudio(song);  //optional
+  stopAudio(song);
   clearInterval(timer);
   time = 15;
-  return "game stopped";
+  return "Game Over";
 }
 
 function startGame() {
