@@ -110,7 +110,7 @@ function whack(event) {
 
 //This funciton adds the 'click' event listeners to the moles.
 function setEventListeners() {
-	moles.forEach((mole) => mole.addEventListener("click", whack));
+	moles.forEach((moles) => moles.addEventListener("click", whack));
 	return moles;
 }
 
@@ -138,6 +138,25 @@ function startGame() {
 }
 
 startButton.addEventListener("click", startGame);
+
+const audioHit = new Audio("https://github.com/gabrielsanchez/erddiagram/blob/main/hit.mp3?raw=true");
+const song = new Audio("https://github.com/gabrielsanchez/erddiagram/blob/main/molesong.mp3?raw=true");
+
+function playAudio(audioObject) {
+  audioObject.play();
+}
+
+function loopAudio(audioObject) {
+  audioObject.loop = true;
+  playAudio(audioObject);
+}
+
+function stopAudio(audioObject) {
+  audioObject.pause();
+}
+
+function play(){
+  playAudio(song);
 }
 
 
