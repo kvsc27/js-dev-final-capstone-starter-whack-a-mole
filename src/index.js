@@ -24,7 +24,7 @@ function play(){
   playAudio(song);
 }
 
-let time = 15;
+let time = 30;
 let timer;
 let lastHole = 0;
 let points = 0;
@@ -65,10 +65,11 @@ function gameOver() {
     timeoutId = showUp();
     return timeoutId;
   } else {
-    gameStopped = stopGame ();
-    return gameStopped;
+    alert("Time's up! Nuff skeetos!");
+    return stopGame();
   }
-}  
+}
+  
 //This funciton calls the showAndHide() function with a specific delay and a hole.
 function showUp() {
   let delay = setDelay(difficulty);
@@ -143,16 +144,18 @@ function setDuration(duration) {
   return time;
 }
 
-//This function is called when the game is stopped. It clears the imer using clearInterval. Returns "Game Over'.
+//This function is called when the game is stopped. It clears the imer using clearInterval. Returns "Game Over' and enables the start button again.
 function stopGame() {
   stopAudio(song);
   clearInterval(timer);
+  startButton.disabled = false;
   time = 15;
   return "Game Over";
 }
 
-//This function starts the game when the 'Start' button is clicked
+//This function starts the game when the 'Start' button is clicked then disables it 
 function startGame() {
+  startButton.disabled = true; 
   time = 15;
   playAudio(song);
   setDuration(time);
@@ -161,7 +164,6 @@ function startGame() {
   startTimer();
   return "Let's get WHACKIN";
 }
-
 
 setEventListeners();
 startButton.addEventListener("click", startGame);
