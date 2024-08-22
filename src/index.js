@@ -6,6 +6,7 @@ const timerDisplay = document.querySelector("#timer");
 const audioHit = new Audio("https://github.com/kvsc27/js-dev-final-capstone-starter-whack-a-mole/raw/main/assets/hit.mp3");
 const song = new Audio("https://github.com/kvsc27/js-dev-final-capstone-starter-whack-a-mole/raw/main/assets/molesong.mp3");
 
+//This function plays audio in a loop and stopping when game is done
 function playAudio(audioObject) {
   audioObject.play();
 }
@@ -105,8 +106,13 @@ function updateScore() {
 function clearScore() {
   points = 0;
   score.textContent = points;
+  
+  score.classList.add("reset-animation");
+  setTimeout(() => score.classList.remove("reset-animation"), 500); 
+
   return points;
 }
+
 
 //This function updates the board with the timer if time > 0.
 function updateTimer() {
