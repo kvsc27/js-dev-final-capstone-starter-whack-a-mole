@@ -80,3 +80,8 @@ h2 {
   top: 0;
   /*transform: scale(1.1);*/
 }
+
+.reset-animation {
+  color: red;
+  transition: color 0.5s ease-in-out;
+}
