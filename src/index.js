@@ -17,6 +17,7 @@ function loopAudio(audioObject) {
 
 function stopAudio(audioObject) {
   audioObject.pause();
+  audioObject.currentTime = 0; 
 }
 
 function play(){
