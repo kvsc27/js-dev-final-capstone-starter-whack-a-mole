@@ -131,11 +131,9 @@ function startTimer() {
 
 //This is the event handler that gets called when a player clicks on a mole. The setEventListeners use this event handler for each of the moles.
 function whack(event) {
-  if (event.target.classList.contains("show")) {
-    updateScore();
-    playAudio(audioHit);
-  }
-  return points;
+	updateScore();
+	playAudio(audioHit);
+	return points;
 }
 
 //This funciton adds the 'click' event listeners to the moles.
