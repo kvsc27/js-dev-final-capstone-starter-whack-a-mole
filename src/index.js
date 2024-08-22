@@ -136,7 +136,6 @@ function whack(event) {
     playAudio(audioHit);
     updateScore();
   }
-  return points;
 }
 
 //This funciton adds the 'click' event listeners to the moles.
