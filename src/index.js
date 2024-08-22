@@ -163,11 +163,12 @@ function startGame() {
   setDuration(time);
   showUp();
   clearScore();
+  setEventListeners();	
   startTimer();
   return "Let's get WHACKIN";
 }
 
-setEventListeners();
+
 startButton.addEventListener("click", startGame);
 
 // Please do not modify the code below.
