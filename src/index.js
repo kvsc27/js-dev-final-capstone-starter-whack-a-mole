@@ -4,7 +4,7 @@ const startButton = document.querySelector('#start');
 const score = document.querySelector("#score");
 const timerDisplay = document.querySelector("#timer");
 const audioHit = new Audio("https://github.com/kvsc27/js-dev-final-capstone-starter-whack-a-mole/blob/main/assets/hit.mp3");
-const song = new Audio("https://github.com/gabrielsanchez/erddiagram/blob/main/molesong.mp3?raw=true");
+const song = new Audio("https://github.com/kvsc27/js-dev-final-capstone-starter-whack-a-mole/raw/main/assets/molesong.mp3");
 
 function playAudio(audioObject) {
   audioObject.play();
