@@ -4,7 +4,7 @@ const startButton = document.querySelector('#start');
 const score = document.querySelector("#score");
 const timerDisplay = document.querySelector("#timer");
 const audioHit = new Audio("https://github.com/kvsc27/js-dev-final-capstone-starter-whack-a-mole/raw/main/assets/hit.mp3");
-AudioHit.preload = 'auto';
+audioHit.preload = 'auto';
 const song = new Audio("https://github.com/kvsc27/js-dev-final-capstone-starter-whack-a-mole/raw/main/assets/molesong.mp3");
 
 //This function plays audio in a loop and stops when game is done at the timer = 0
@@ -131,9 +131,11 @@ function startTimer() {
 
 //This is the event handler that gets called when a player clicks on a mole. The setEventListeners use this event handler for each of the moles.
 function whack(event) {
-	updateScore();
-	playAudio(audioHit);
-	return points;
+  if (event.target.classList.contains("show")) {
+    updateScore();
+    playAudio(audioHit);
+  }
+  return points;
 }
 
 //This funciton adds the 'click' event listeners to the moles.
@@ -169,7 +171,6 @@ function startGame() {
   startTimer();
   return "Let's get WHACKIN";
 }
-
 
 startButton.addEventListener("click", startGame);
 
