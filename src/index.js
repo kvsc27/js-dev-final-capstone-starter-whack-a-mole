@@ -99,7 +99,6 @@ function toggleVisibility(hole){
 function updateScore() {
   points += 1;
   score.textContent = points;
-	console.log("Points:", points);
   return points;
 }
 
@@ -107,9 +106,6 @@ function updateScore() {
 function clearScore() {
   points = 0;
   score.textContent = points;
-  
-  score.classList.add("reset-animation");
-  setTimeout(() => score.classList.remove("reset-animation"), 500); 
 
   return points;
 }
