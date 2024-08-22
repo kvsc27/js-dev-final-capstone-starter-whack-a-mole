@@ -10,9 +10,10 @@ const song = new Audio("https://github.com/kvsc27/js-dev-final-capstone-starter-
 //This function plays audio in a loop and stops when game is done at the timer = 0
 function playAudio(audioObject) {
   audioObject.play().catch(error => {
-	  console.error)"Error playing audio:" error;
+    console.error("Error playing audio:", error);
   });
 }
+
 
 function loopAudio(audioObject) {
   audioObject.loop = true;
