@@ -3,7 +3,7 @@ const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('#start');
 const score = document.querySelector("#score");
 const timerDisplay = document.querySelector("#timer");
-const audioHit = new Audio("https://github.com/kvsc27/js-dev-final-capstone-starter-whack-a-mole/blob/main/assets/hit.mp3?raw=true");
+const audioHit = new Audio("https://github.com/kvsc27/js-dev-final-capstone-starter-whack-a-mole/raw/main/assets/hit.mp3");
 const song = new Audio("https://github.com/kvsc27/js-dev-final-capstone-starter-whack-a-mole/raw/main/assets/molesong.mp3?raw=true");
 
 function playAudio(audioObject) {
@@ -124,8 +124,10 @@ function startTimer() {
 
 //This is the event handler that gets called when a player clicks on a mole. The setEventListeners use this event handler for each of the moles.
 function whack(event) {
-  playAudio(audioHit);  
-  updateScore();
+  if (event.target.classList.contains("show")) {
+    playAudio(audioHit);
+    updateScore();
+  }
   return points;
 }
 
@@ -143,6 +145,7 @@ function setDuration(duration) {
 
 //This function is called when the game is stopped. It clears the imer using clearInterval. Returns "Game Over'.
 function stopGame() {
+  stopAudio(song);
   clearInterval(timer);
   time = 15;
   return "Game Over";
