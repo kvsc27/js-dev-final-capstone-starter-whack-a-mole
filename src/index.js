@@ -4,7 +4,7 @@ const startButton = document.querySelector('#start');
 const score = document.querySelector("#score");
 const timerDisplay = document.querySelector("#timer");
 const audioHit = new Audio("https://github.com/kvsc27/js-dev-final-capstone-starter-whack-a-mole/raw/main/assets/hit.mp3");
-const song = new Audio("https://github.com/kvsc27/js-dev-final-capstone-starter-whack-a-mole/raw/main/assets/molesong.mp3?raw=true");
+const song = new Audio("https://github.com/kvsc27/js-dev-final-capstone-starter-whack-a-mole/raw/main/assets/molesong.mp3");
 
 function playAudio(audioObject) {
   audioObject.play();
@@ -153,14 +153,17 @@ function stopGame() {
 
 //This function starts the game when the 'Start' button is clicked
 function startGame() {
+  time = 15;
+  playAudio(song);
   setDuration(time);
   showUp();
   clearScore();
-  setEventListeners();
   startTimer();
   return "Let's get WHACKIN";
 }
 
+
+setEventListeners();
 startButton.addEventListener("click", startGame);
 
 // Please do not modify the code below.
